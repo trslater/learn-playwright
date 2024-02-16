@@ -7,6 +7,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "e2e": "npx playwright test",
+    "e2e:report": "npx playwright show-report",
+    "e2e:ui": "npx playwright test --ui"
+  },
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.19"

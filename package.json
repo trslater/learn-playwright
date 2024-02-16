@@ -1,0 +1,11 @@
+{
+  "name": "learn-playwright",
+  "version": "0.1.0",
+  "description": "Messing around with playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "trslater",
+  "license": "MIT"
+}

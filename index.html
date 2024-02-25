@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 30px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="login-form">
+      <label>
+        Username:
+        <input type="text" id="username" name="username" value="user1" />
+      </label>
+      <label>
+        Password:
+        <input type="password" id="password" name="password" value="pass1" />
+      </label>
+      <button type="submit">Login</button>
+    </form>
+
+    <div id="protected-page-container"></div>
+
+    <script>
+      /*
+       * IMPORTANT
+       *
+       * This is dummy code to statically simulate logging in. This is NOT proper authentication.
+       */
+
+      const BASE_TOKEN = "ad9f92hj3f9n9wdfaod";
+      const USERS = {
+        user1: {
+          username: "user1",
+          password: "pass1",
+        },
+      };
+
+      document.getElementById("login-form").addEventListener("submit", login);
+
+      function login(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+
+        const user = USERS[formData.get("username")];
+
+        if (!user || user["password"] !== formData.get("password")) return;
+
+        loadProtectedPage(
+          formData.get("username"),
+          `${BASE_TOKEN}:${formData.get("username")}`
+        );
+      }
+
+      function loadProtectedPage(requestedUsername, token) {
+        const [baseToken, authenticatedUsername] = token.split(":");
+
+        if (
+          baseToken !== BASE_TOKEN ||
+          requestedUsername !== authenticatedUsername
+        )
+          return;
+
+        document.getElementById("protected-page-container").innerHTML = `
+          <h2>Protected Area</h2>
+
+          <p>If you can see this, you are authenticated.</p>
+        `;
+      }
+    </script>
+  </body>
+</html>

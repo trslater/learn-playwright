@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          node-version: 20
       - uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -27,7 +25,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          node-version: 20
           name: playwright-report
           path: playwright-report/
           retention-days: 30

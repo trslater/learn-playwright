@@ -2,6 +2,11 @@ name: Playwright Tests
 on:
   schedule:
     - cron: "47 9 * * *"
+  on:
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - main
 jobs:
   test:
     timeout-minutes: 60

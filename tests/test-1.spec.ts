@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-import "dotenv/config";
 
 test("test", async ({ page }) => {
   await page.goto("https://trslater.ca/learn-playwright/");

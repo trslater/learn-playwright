@@ -5,7 +5,7 @@ on:
   pull_request:
     types: [opened, reopened]
     branches-ignore:
-      - main
+      - master
 jobs:
   test:
     timeout-minutes: 60

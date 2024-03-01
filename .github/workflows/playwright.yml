@@ -3,8 +3,7 @@ on:
   schedule:
     - cron: "47 9 * * *"
   pull_request:
-    types: [opened, reopened]
-    branches-ignore:
+    branches:
       - master
 jobs:
   test:
